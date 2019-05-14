@@ -1,13 +1,14 @@
 package com.isieiti.bdproject.controller;
 
 import com.isieiti.bdproject.dto.EmployeeDTO;
+import com.isieiti.bdproject.dto.EmployeePostDTO;
+import com.isieiti.bdproject.entity.Employee;
 import com.isieiti.bdproject.mapper.EmployeeMapper;
 import com.isieiti.bdproject.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/employee")
@@ -22,5 +23,21 @@ public class EmployeeController {
     @GetMapping("/{id}")
     public EmployeeDTO getEmployeeById(@PathVariable Long id) {
         return mapper.toEmployeeDTO(service.getSingleEmployee(id));
+    }
+
+    @GetMapping
+    public List<EmployeeDTO> getEmployees() {
+        return mapper.toEmployeeDTOs(service.getAllEmployees());
+    }
+
+    @PostMapping
+    public EmployeePostDTO postEmployee(@RequestBody EmployeePostDTO employeeDTO) {
+        Employee employee = service.saveEmployee(mapper.toEmployee(employeeDTO));
+        return mapper.toEmployeePostDTO(employee);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteEmployee(@PathVariable Long id) {
+        service.deleteEmployee(id);
     }
 }

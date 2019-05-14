@@ -2,6 +2,8 @@ package com.isieiti.bdproject.repository;
 
 import com.isieiti.bdproject.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public abstract class EmployeeRepository implements JpaRepository<Employee, Long> {
+@Repository
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 }
