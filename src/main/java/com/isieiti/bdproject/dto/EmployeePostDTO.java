@@ -5,6 +5,8 @@ import lombok.Data;
 @Data
 public class EmployeePostDTO {
 
+        private Long id;
+
         private String name;
 
         private String surname;
@@ -13,5 +15,5 @@ public class EmployeePostDTO {
 
         private String type;
 
-        private String wardId;
+        private Long wardId;
 }

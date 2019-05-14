@@ -32,8 +32,7 @@ public class EmployeeController {
 
     @PostMapping
     public EmployeePostDTO postEmployee(@RequestBody EmployeePostDTO employeeDTO) {
-        Employee employee = service.saveEmployee(mapper.toEmployee(employeeDTO));
-        return mapper.toEmployeePostDTO(employee);
+        return mapper.toEmployeePostDTO(service.saveEmployee(mapper.toEmployee(employeeDTO)));
     }
 
     @DeleteMapping("/{id}")
