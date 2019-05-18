@@ -2,7 +2,6 @@ package com.isieiti.bdproject.controller;
 
 import com.isieiti.bdproject.dto.EmployeeDTO;
 import com.isieiti.bdproject.dto.EmployeePostDTO;
-import com.isieiti.bdproject.entity.Employee;
 import com.isieiti.bdproject.mapper.EmployeeMapper;
 import com.isieiti.bdproject.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
