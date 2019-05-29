@@ -2,23 +2,32 @@ package com.isieiti.bdproject.controller;
 
 import com.isieiti.bdproject.dto.EmployeeDTO;
 import com.isieiti.bdproject.dto.EmployeePostDTO;
+import com.isieiti.bdproject.entity.Employee;
+import com.isieiti.bdproject.entity.Ward;
 import com.isieiti.bdproject.mapper.EmployeeMapper;
 import com.isieiti.bdproject.service.EmployeeService;
+import com.isieiti.bdproject.service.WardService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+//@RequiredArgsConstructor
 @RequestMapping("/employee")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EmployeeController {
 
-    @Autowired
     private EmployeeMapper mapper;
-
-    @Autowired
     private EmployeeService service;
+    private WardService wardService;
+
+    public EmployeeController(EmployeeMapper mapper, EmployeeService service, WardService wardService) {
+        this.mapper = mapper;
+        this.service = service;
+        this.wardService = wardService;
+    }
 
     @GetMapping("/{id}")
     public EmployeeDTO getEmployeeById(@PathVariable Long id) {
@@ -32,7 +41,10 @@ public class EmployeeController {
 
     @PostMapping
     public EmployeePostDTO postEmployee(@RequestBody EmployeePostDTO employeeDTO) {
-        return mapper.toEmployeePostDTO(service.saveEmployee(mapper.toEmployee(employeeDTO)));
+        Ward ward = wardService.findById(employeeDTO.getWardId());
+        Employee employee = mapper.toEmployee(employeeDTO);
+        employee.setWard(ward);
+        return mapper.toEmployeePostDTO(service.saveEmployee(employee));
     }
 
     @DeleteMapping("/{id}")
