@@ -8,32 +8,25 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class RoomReservationService {
 
-    private RoomReservationRepository repository;
+    final private RoomReservationRepository repository;
 
-    //public RoomReservationService() {
-    //}
-
-//    public RoomReservationService(RoomReservationRepository repository) {
-//        this.repository = repository;
-//    }
-
-    public RoomReservation findById(Long id){
-        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Ward", "id", id));
+    public RoomReservation findById(Long id) {
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("RoomReservation", "id", id));
     }
 
-    public List<RoomReservation> getAllRoomReservations(){
+    public List<RoomReservation> getAllRoomReservations() {
         return repository.findAll();
     }
 
-    public RoomReservation saveRoomReservation(RoomReservation roomReservation){
+    public RoomReservation saveRoomReservation(RoomReservation roomReservation) {
         return repository.save(roomReservation);
     }
 
-    public void deleteRoomReservation(Long id){
+    public void deleteRoomReservation(Long id) {
         repository.deleteById(id);
     }
 }

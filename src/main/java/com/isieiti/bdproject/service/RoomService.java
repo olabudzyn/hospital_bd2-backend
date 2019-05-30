@@ -10,13 +10,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class RoomService {
 
-    private RoomRepository repository;
+    private final RoomRepository repository;
 
-   // public RoomService(RoomRepository repository) {
-     //   this.repository = repository;
-    //}
-
-    public Room findById(Long id){
+    public Room findById(Long id) {
         return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Ward", "id", id));
     }
 }
