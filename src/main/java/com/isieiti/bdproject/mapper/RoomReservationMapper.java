@@ -10,7 +10,7 @@ import org.mapstruct.Mappings;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-abstract public class RoomReservationMapper {
+public abstract class RoomReservationMapper {
 
     @Mappings({
             @Mapping(target = "employeeName", source = "roomReservation.employee.name"),

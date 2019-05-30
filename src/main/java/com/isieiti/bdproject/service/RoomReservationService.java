@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RoomReservationService {
 
-    final private RoomReservationRepository repository;
+    private final RoomReservationRepository repository;
 
     public RoomReservation findById(Long id) {
         return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("RoomReservation", "id", id));

@@ -1,6 +1,5 @@
 package com.isieiti.bdproject.controller;
 
-
 import com.isieiti.bdproject.dto.RoomReservationDTO;
 import com.isieiti.bdproject.dto.RoomReservationPostDTO;
 import com.isieiti.bdproject.entity.Employee;
@@ -16,23 +15,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/room")
+@RequiredArgsConstructor
+@RequestMapping("/room_reservation")
 public class RoomReservationController {
 
-    private RoomReservationMapper mapper;
-    private EmployeeService employeeService;
-    private RoomService roomService;
-    private RoomReservationService roomReservationService;
-
-    public RoomReservationController(RoomReservationMapper mapper, EmployeeService employeeService, RoomService roomService, RoomReservationService roomReservationService) {
-        this.mapper = mapper;
-        this.employeeService = employeeService;
-        this.roomService = roomService;
-        this.roomReservationService = roomReservationService;
-    }
+    private final RoomReservationMapper mapper;
+    private final EmployeeService employeeService;
+    private final RoomService roomService;
+    private final RoomReservationService roomReservationService;
 
     @GetMapping("/{id}")
-    public RoomReservationDTO getRoomReservationById(@PathVariable Long id){
+    public RoomReservationDTO getRoomReservationById(@PathVariable Long id) {
         return mapper.toRoomReservationDTO(roomReservationService.findById(id));
     }
 
