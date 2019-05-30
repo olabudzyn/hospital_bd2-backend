@@ -7,8 +7,6 @@ import com.isieiti.bdproject.entity.Ward;
 import com.isieiti.bdproject.mapper.EmployeeMapper;
 import com.isieiti.bdproject.service.EmployeeService;
 import com.isieiti.bdproject.service.WardService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,5 +48,7 @@ public class EmployeeController {
     @DeleteMapping("/{id}")
     public void deleteEmployee(@PathVariable Long id) {
         service.deleteEmployee(id);
+        //Calendar c = Calendar.getInstance();
+        //c.set(Calendar.DAY_OF_MONTH, 1);
     }
 }
