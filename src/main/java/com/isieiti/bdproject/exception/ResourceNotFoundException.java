@@ -8,6 +8,7 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @Getter
 @ResponseStatus(value = NOT_FOUND)
 public class ResourceNotFoundException extends RuntimeException {
+
     private String resourceName;
 
     private String fieldName;
