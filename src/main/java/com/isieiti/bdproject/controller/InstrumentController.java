@@ -4,9 +4,7 @@ import com.isieiti.bdproject.dto.InstrumentDTO;
 import com.isieiti.bdproject.mapper.InstrumentMapper;
 import com.isieiti.bdproject.service.InstrumentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +20,10 @@ public class InstrumentController {
     @GetMapping
     public List<InstrumentDTO> getInstruments() {
         return mapper.toInstrumentDTOs(service.getAll());
+    }
+
+    @PostMapping
+    public InstrumentDTO postInstrument(@RequestBody InstrumentDTO instrumentDTO) {
+        return mapper.toInstrumentDTO(service.saveInstrument(mapper.toInstrument(instrumentDTO)));
     }
 }

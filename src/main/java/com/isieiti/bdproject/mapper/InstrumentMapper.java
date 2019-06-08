@@ -13,4 +13,7 @@ public interface InstrumentMapper {
 
     InstrumentDTO toInstrumentDTO(Instrument instrument);
 
+    Instrument toInstrument(InstrumentDTO instrument);
+
+
 }
