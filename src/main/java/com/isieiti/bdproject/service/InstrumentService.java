@@ -6,6 +6,8 @@ import com.isieiti.bdproject.repository.InstrumentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class InstrumentService {
@@ -14,5 +16,9 @@ public class InstrumentService {
 
     public Instrument findById(Long id) {
         return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Instrument", "id", id));
+    }
+
+    public List<Instrument> getAll() {
+        return repository.findAll();
     }
 }
