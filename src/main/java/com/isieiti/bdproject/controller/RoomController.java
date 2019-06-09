@@ -1,6 +1,7 @@
 package com.isieiti.bdproject.controller;
 
 import com.isieiti.bdproject.dto.RoomDTO;
+import com.isieiti.bdproject.entity.Room;
 import com.isieiti.bdproject.mapper.RoomMapper;
 import com.isieiti.bdproject.service.RoomService;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,11 @@ public class RoomController {
     @GetMapping
     public List<RoomDTO> getRoomsList() {
         return mapper.toRoomDTOs(service.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public RoomDTO getOneRoom(@PathVariable Long id) {
+        return mapper.toRoomDTO(service.findById(id));
     }
 
     @PostMapping

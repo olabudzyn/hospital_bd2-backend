@@ -22,6 +22,11 @@ public class InstrumentController {
         return mapper.toInstrumentDTOs(service.getAll());
     }
 
+    @GetMapping("/{id}")
+    public InstrumentDTO getOneInstrument(@PathVariable Long id) {
+        return mapper.toInstrumentDTO(service.findById(id));
+    }
+
     @PostMapping
     public InstrumentDTO postInstrument(@RequestBody InstrumentDTO instrumentDTO) {
         return mapper.toInstrumentDTO(service.saveInstrument(mapper.toInstrument(instrumentDTO)));
