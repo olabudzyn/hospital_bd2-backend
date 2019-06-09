@@ -25,4 +25,8 @@ public class InstrumentService {
     public Instrument saveInstrument(Instrument instrument) {
         return repository.save(instrument);
     }
+
+    public void deleteInstrument(Long id) {
+        repository.deleteById(id);
+    }
 }

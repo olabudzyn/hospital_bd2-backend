@@ -26,4 +26,9 @@ public class InstrumentController {
     public InstrumentDTO postInstrument(@RequestBody InstrumentDTO instrumentDTO) {
         return mapper.toInstrumentDTO(service.saveInstrument(mapper.toInstrument(instrumentDTO)));
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteInstrument(@PathVariable Long id) {
+        service.deleteInstrument(id);
+    }
 }
