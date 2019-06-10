@@ -5,13 +5,12 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
-@Table(name="room_reservations")
-public class RoomReservation {
+@Table(name = "perioperative_room_reservations")
+public class PerioperativeRoomReservation {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -23,12 +22,13 @@ public class RoomReservation {
     @Column(name = "end_timestamp")
     private LocalDateTime endTimestamp;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
+    private String type;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
-    private Room room;
+    private PerioperativeRoom room;
 
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 }

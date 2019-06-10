@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+import static javax.persistence.CascadeType.ALL;
+
 @Entity
 @Data
 @Table(name = "instrument_reservations")
@@ -20,7 +22,7 @@ public class InstrumentReservation {
     @Column(name = "end_timestamp")
     private LocalDateTime endTimestamp;
 
-    @ManyToOne
+    @ManyToOne(cascade = ALL)
     @JoinColumn(name = "employee_id")
     private Employee employee;
 

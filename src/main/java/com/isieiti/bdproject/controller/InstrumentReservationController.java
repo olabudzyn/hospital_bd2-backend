@@ -35,13 +35,13 @@ public class InstrumentReservationController {
     }
 
     @PostMapping
-    public InstrumentReservationDTO postInstrumentReservation(@RequestBody InstrumentReservationPostDTO instrumentReservationPostDTO) {
+    public InstrumentReservationPostDTO postInstrumentReservation(@RequestBody InstrumentReservationPostDTO instrumentReservationPostDTO) {
         Employee employee = employeeService.getSingleEmployee(instrumentReservationPostDTO.getEmployeeId());
         Instrument instrument = instrumentService.findById(instrumentReservationPostDTO.getInstrumentId());
         InstrumentReservation instrumentReservation = mapper.toInstrumentReservation(instrumentReservationPostDTO);
         instrumentReservation.setEmployee(employee);
         instrumentReservation.setInstrument(instrument);
-        return mapper.toInstrumentReservationDTO(instrumentReservationService.postInstrumentReservation(instrumentReservation));
+        return mapper.toInstrumentReservationPostDTO(instrumentReservationService.postInstrumentReservation(instrumentReservation));
     }
 
     @DeleteMapping

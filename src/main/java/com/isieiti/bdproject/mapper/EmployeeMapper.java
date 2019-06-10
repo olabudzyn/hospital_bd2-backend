@@ -19,7 +19,7 @@ public abstract class EmployeeMapper {
 
     public abstract List<EmployeeDTO> toEmployeeDTOs(List<Employee> employees);
 
-    @Mapping(target = "ward.id", source = "employeeDTO.wardId")
+    @Mapping(target = "ward.id", source = "wardId")
     public abstract Employee toEmployee(EmployeePostDTO employeeDTO);
 
 }

@@ -19,7 +19,6 @@ public class EmployeeController {
 
     private final EmployeeMapper mapper;
     private final EmployeeService service;
-    private final WardService wardService;
 
     @GetMapping("/{id}")
     public EmployeeDTO getEmployeeById(@PathVariable Long id) {
@@ -33,10 +32,7 @@ public class EmployeeController {
 
     @PostMapping
     public EmployeePostDTO postEmployee(@RequestBody EmployeePostDTO employeeDTO) {
-        Ward ward = wardService.findById(employeeDTO.getWardId());
-        Employee employee = mapper.toEmployee(employeeDTO);
-        employee.setWard(ward);
-        return mapper.toEmployeePostDTO(service.saveEmployee(employee));
+        return mapper.toEmployeePostDTO(service.saveEmployee(mapper.toEmployee(employeeDTO)));
     }
 
     @DeleteMapping("/{id}")

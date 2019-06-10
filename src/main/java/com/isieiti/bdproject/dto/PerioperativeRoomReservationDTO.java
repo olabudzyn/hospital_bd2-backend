@@ -6,7 +6,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class InstrumentReservationDTO {
+public class PerioperativeRoomReservationDTO {
 
     private Long id;
 
@@ -20,7 +20,7 @@ public class InstrumentReservationDTO {
 
     private MedicalEmployeeRole employeeType;
 
-    private String serialNumber;
+    private int roomNumber;
 
-    private String instrumentType;
+    private int bedsNumber;
 }

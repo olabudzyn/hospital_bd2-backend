@@ -1,18 +1,19 @@
 package com.isieiti.bdproject.dto;
 
 import com.isieiti.bdproject.enums.MedicalEmployeeRole;
+import com.isieiti.bdproject.enums.ReportType;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
-public class InstrumentReservationDTO {
+public class ReportDTO {
 
     private Long id;
 
-    private LocalDateTime startTimestamp;
+    private LocalDateTime creationTimestamp;
 
-    private LocalDateTime endTimestamp;
+    private boolean closed;
 
     private String employeeName;
 
@@ -20,7 +21,5 @@ public class InstrumentReservationDTO {
 
     private MedicalEmployeeRole employeeType;
 
-    private String serialNumber;
-
-    private String instrumentType;
+    private ReportType reportType;
 }
