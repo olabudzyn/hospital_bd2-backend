@@ -6,15 +6,15 @@ import lombok.Data;
 @Data
 public class EmployeePostDTO {
 
-        private Long id;
+    private Long id;
 
-        private String name;
+    private String name;
 
-        private String surname;
+    private String surname;
 
-        private String prefix;
+    private String prefix;
 
-        private MedicalEmployeeRole type;
+    private MedicalEmployeeRole type;
 
-        private Long wardId;
+    private Long wardId;
 }

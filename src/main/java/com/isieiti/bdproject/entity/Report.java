@@ -6,13 +6,16 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Entity
 @Data
 @Table(name = "reports")
 public class Report {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
     @Column(name = "creation_timestamp")
@@ -27,7 +30,7 @@ public class Report {
     @Enumerated(EnumType.STRING)
     private ReportType type;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "employee_id")
     private Employee employee;
 }
