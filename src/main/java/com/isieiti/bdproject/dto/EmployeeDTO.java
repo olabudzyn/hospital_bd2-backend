@@ -1,5 +1,6 @@
 package com.isieiti.bdproject.dto;
 
+import com.isieiti.bdproject.enums.MedicalEmployeeRole;
 import lombok.Data;
 
 @Data
@@ -13,7 +14,7 @@ public class EmployeeDTO {
 
     private String prefix;
 
-    private String type;
+    private MedicalEmployeeRole type;
 
     private String wardName;
 

@@ -43,7 +43,5 @@ public class EmployeeController {
     @DeleteMapping("/{id}")
     public void deleteEmployee(@PathVariable Long id) {
         service.deleteEmployee(id);
-        //Calendar c = Calendar.getInstance();
-        //c.set(Calendar.DAY_OF_MONTH, 1);
     }
 }

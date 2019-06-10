@@ -1,5 +1,6 @@
 package com.isieiti.bdproject.entity;
 
+import com.isieiti.bdproject.enums.MedicalEmployeeRole;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,9 +21,13 @@ public class Employee {
 
     private String prefix;
 
-    private String type;
+    @Column(name = "type")
+    @Enumerated(EnumType.STRING)
+    private MedicalEmployeeRole type;
 
     @ManyToOne
     @JoinColumn(name = "ward_id")
     private Ward ward;
+
+
 }

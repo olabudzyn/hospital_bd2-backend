@@ -1,5 +1,6 @@
 package com.isieiti.bdproject.dto;
 
+import com.isieiti.bdproject.enums.MedicalEmployeeRole;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -17,7 +18,7 @@ public class PerioperativeRoomReservationDTO {
 
     private String employeeSurname;
 
-    private String employeeType;
+    private MedicalEmployeeRole employeeType;
 
     private int roomNumber;
 

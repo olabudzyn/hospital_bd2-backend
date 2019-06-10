@@ -6,13 +6,9 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class InstrumentReservationDTO {
+public class WithdrawalReportDTO {
 
     private Long id;
-
-    private LocalDateTime startTimestamp;
-
-    private LocalDateTime endTimestamp;
 
     private String employeeName;
 
@@ -20,7 +16,5 @@ public class InstrumentReservationDTO {
 
     private MedicalEmployeeRole employeeType;
 
-    private String serialNumber;
-
-    private String instrumentType;
+    private LocalDateTime creationTimestamp;
 }
