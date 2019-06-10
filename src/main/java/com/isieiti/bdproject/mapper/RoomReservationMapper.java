@@ -16,6 +16,7 @@ public abstract class RoomReservationMapper {
             @Mapping(target = "employeeName", source = "roomReservation.employee.name"),
             @Mapping(target = "employeeSurname", source = "roomReservation.employee.surname"),
             @Mapping(target = "employeeType", source = "roomReservation.employee.type"),
+            @Mapping(target = "roomId", source = "roomReservation.room.id"),
             @Mapping(target = "roomNumber", source = "roomReservation.room.number"),
             @Mapping(target = "roomType", source = "roomReservation.room.type")
     })

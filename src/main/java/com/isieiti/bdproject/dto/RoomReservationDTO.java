@@ -19,6 +19,8 @@ public class RoomReservationDTO {
 
     private String employeeType;
 
+    private Long roomId;
+
     private int roomNumber;
 
     private String roomType;
