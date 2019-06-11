@@ -13,9 +13,11 @@ import java.util.List;
 public abstract class InstrumentReservationMapper {
 
     @Mappings({
+            @Mapping(target = "employeeId", source = "instrumentReservation.employee.id"),
             @Mapping(target = "employeeName", source = "instrumentReservation.employee.name"),
             @Mapping(target = "employeeSurname", source = "instrumentReservation.employee.surname"),
             @Mapping(target = "employeeType", source = "instrumentReservation.employee.type"),
+            @Mapping(target = "instrumentId", source = "instrumentReservation.instrument.id"),
             @Mapping(target = "serialNumber", source = "instrumentReservation.instrument.serialNumber"),
             @Mapping(target = "instrumentType", source = "instrumentReservation.instrument.type")
     })

@@ -13,6 +13,7 @@ import java.util.List;
 public abstract class RoomReservationMapper {
 
     @Mappings({
+            @Mapping(target = "employeeId", source = "roomReservation.employee.id"),
             @Mapping(target = "employeeName", source = "roomReservation.employee.name"),
             @Mapping(target = "employeeSurname", source = "roomReservation.employee.surname"),
             @Mapping(target = "employeeType", source = "roomReservation.employee.type"),

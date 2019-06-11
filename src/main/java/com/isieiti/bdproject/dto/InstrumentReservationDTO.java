@@ -14,11 +14,15 @@ public class InstrumentReservationDTO {
 
     private LocalDateTime endTimestamp;
 
+    private Long employeeId;
+
     private String employeeName;
 
     private String employeeSurname;
 
     private MedicalEmployeeRole employeeType;
+
+    private Long instrumentId;
 
     private String serialNumber;
 
